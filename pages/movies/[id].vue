@@ -13,7 +13,7 @@ const { data, error } = await useFetch(
   `${url.value}&i=${route.params.id}`,
   // 'https://httpbin.org/status/500',
   {
-    pick: ['Plot', 'Title', 'Error'],
+    pick: ['Plot', 'Title', 'Error', 'Poster'],
     key: `/movies/${route.params.id}`,
     onResponseError(context) {
       showError({statusCode: 500, statusMessage: 'Oh noes!'});
@@ -46,6 +46,16 @@ if (data.value.Error === 'Incorrect IMDb ID.') {
 // );
 
 movie.value = data;
+
+useHead({
+  title: data.value.Title,
+  meta: [
+    {name: 'description', content: data.value.Plot},
+    {name: 'og:description', content: data.value.Plot},
+    {name: 'og:image', content: data.value.Poster},
+    {name: 'twitter:card', content: 'summary_large_image'},
+  ],
+});
 </script>
 
 <template>
