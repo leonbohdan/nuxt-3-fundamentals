@@ -9,7 +9,7 @@ const movie = ref(null);
 //   movie.value = res;
 // };
 
-const { data } = useAsyncData(() => {
+const { data } = useAsyncData(`/movies/${route.params.id}`, () => {
   return $fetch(`${url.value}&i=${route.params.id}`);
 });
 
