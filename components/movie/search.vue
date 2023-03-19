@@ -1,5 +1,5 @@
 <script setup>
-const url = ref('http://www.omdbapi.com/?i=tt3896198&apikey=d905f6c1');
+const url = ref('http://www.omdbapi.com/?apikey=d905f6c1');
 const query = ref('');
 const movies = ref([]);
 
