@@ -9,9 +9,21 @@ const movie = ref(null);
 //   movie.value = res;
 // };
 
-const { data } = useAsyncData(`/movies/${route.params.id}`, () => {
-  return $fetch(`${url.value}&i=${route.params.id}`);
-});
+const { data } = useAsyncData(
+  `/movies/${route.params.id}`,
+  () => {
+    return $fetch(`${url.value}&i=${route.params.id}`);
+  },
+  {
+    pick: ['Plot', 'Title'],
+    // transform(data){
+    //   return {
+    //     Plot: data.Plot,
+    //     Title: data.Title,
+    //   };
+    // },
+  },
+);
 
 movie.value = data;
 </script>
