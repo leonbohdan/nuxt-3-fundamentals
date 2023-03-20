@@ -40,3 +40,12 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+```bash
+npx nuxi add page movies
+
+npx nuxi add middleware logger
+
+npx nuxi add api helloWorld
+```
