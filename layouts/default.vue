@@ -1,5 +1,5 @@
 <script setup>
-const isLoggedIn = useIsLoggedIn();
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -10,9 +10,9 @@ const isLoggedIn = useIsLoggedIn();
 
     <NuxtLink to="https://vueschool.io/">Vue School</NuxtLink>
 
-    <NuxtLink v-if="!isLoggedIn" to="/login">Login</NuxtLink>
+    <NuxtLink v-if="!userStore.isLoggedIn" to="/login">Login</NuxtLink>
 
-    <a v-else href="#" @click.prevent="isLoggedIn = false">Logout</a>
+    <a v-else href="#" @click.prevent="userStore.isLoggedIn = false">Logout</a>
   </nav>
 
   <slot></slot>
